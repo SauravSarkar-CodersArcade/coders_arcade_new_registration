@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,102 +61,104 @@
     }
   </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h2>Course Registration</h2>
-  <form id="registrationForm" action="https://registrations-e075.restdb.io/rest/registration" method="post">
-    <label>
-      Name:
-      <input type="text" name="name" required>
-    </label>
-    <label>
-      Email:
-      <input type="text" name="email" required>
-    </label>
-    <label>
-      Highest Qualification:
-      <input type="text" name="qualification" required>
-    </label>
-    <label>
-      Address:
-      <input type="text" name="address" required>
-    </label>
-    <label>
-      Phone Number:
-      <input type="text" name="phone" required>
-    </label>
+  <div class="container">
+    <h2>Course Registration</h2>
+    <form id="registrationForm">
+      <label>
+        Name:
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Email:
+        <input type="text" name="email" required>
+      </label>
+      <label>
+        Highest Qualification:
+        <input type="text" name="qualification" required>
+      </label>
+      <label>
+        Address:
+        <input type="text" name="address" required>
+      </label>
+      <label>
+        Phone Number:
+        <input type="text" name="phone" required>
+      </label>
 
-    <h3>Select Courses:</h3>
-    <label>
-      <input type="checkbox" name="courses" value="c"> C Programming Language
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="cpp"> C++ Programming Language
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="python"> Python Programming Language
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="java"> Java Programming Language
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="sql"> Structured Query Language (SQL)
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="advanced-sql"> Advanced SQL
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="advanced-python"> Advanced Python
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="python-data-science"> Python With Data Science
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="python-machine-learning"> Python With Machine Learning
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="software-testing"> Software Testing (Manual + Automation)
-    </label>
-    <label>
-      <input type="checkbox" name="courses" value="web-development"> Web Development (HTML/CSS/JavaScript)
-    </label>
+      <h3>Select Courses:</h3>
+      <label>
+        <input type="checkbox" name="courses" value="c"> C Programming Language
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="cpp"> C++ Programming Language
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="python"> Python Programming Language
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="java"> Java Programming Language
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="sql"> Structured Query Language (SQL)
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="advanced-sql"> Advanced SQL
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="advanced-python"> Advanced Python
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="python-data-science"> Python With Data Science
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="python-machine-learning"> Python With Machine Learning
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="software-testing"> Software Testing (Manual + Automation)
+      </label>
+      <label>
+        <input type="checkbox" name="courses" value="web-development"> Web Development (HTML/CSS/JavaScript)
+      </label>
 
-    <button type="button" onclick="submitForm()">Submit</button>
-  </form>
-</div>
+      <button type="button" onclick="submitForm()">Submit</button>
+    </form>
+  </div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    function submitForm() {
-  event.preventDefault();
-  var formData = new FormData(document.getElementById("registrationForm"));
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      function submitForm() {
+        event.preventDefault();
+        var formData = new FormData(document.getElementById("registrationForm"));
 
-  fetch("https://cors-anywhere.herokuapp.com/https://registrations-e075.restdb.io/rest/registration", {
-    method: "POST",
-    mode: "cors",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json",
-      "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
-    },
-    body: JSON.stringify(Object.fromEntries(formData)),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Registration Successful:", data);
-      alert("Registration Successful!");
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-      alert("Registration failed. Please try again.");
+        fetch("https://cors-anywhere.herokuapp.com/https://registrations-e075.restdb.io/rest/registration", {
+          method: "POST",
+          mode: "cors",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
+          },
+          body: JSON.stringify(Object.fromEntries(formData)),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Registration Successful:", data);
+            alert("Registration Successful!");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Registration failed. Please try again.");
+          });
+      }
+
+      var submitButton = document.querySelector("button");
+      submitButton.addEventListener("click", submitForm);
     });
-}
-    // Assign the function to the button click event
-    var submitButton = document.querySelector("button");
-    submitButton.addEventListener("click", submitForm);
-  });
-</script>
+  </script>
 
 </body>
+
 </html>
