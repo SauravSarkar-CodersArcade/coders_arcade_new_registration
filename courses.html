@@ -121,12 +121,12 @@
       <input type="checkbox" name="courses" value="web-development"> Web Development (HTML/CSS/JavaScript)
     </label>
 
-    <button type="submit">Submit</button>
+    <button type="submit" onclick="submitForm()">Submit</button>
   </form>
 </div>
 
 <script>
-  function submitForm() {
+  function submitForm(event) {
     event.preventDefault(); // Add this line
     var formData = new FormData(document.getElementById("registrationForm"));
 
