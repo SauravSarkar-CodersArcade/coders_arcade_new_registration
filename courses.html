@@ -254,15 +254,15 @@
 
 <script>
   function submitForm() {
-    var formData = new FormData(document.getElementById("registrationForm"));
+    var form = document.getElementById("registrationForm");
+    var formData = new FormData(form);
 
     fetch("https://registrations-e075.restdb.io/rest/registration", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
         "x-apikey": "cbdc58d9f499a63da5d742b540d45f13477a7",
       },
-      body: JSON.stringify(Object.fromEntries(formData)),
+      body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
