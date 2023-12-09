@@ -64,7 +64,7 @@
 
 <div class="container">
   <h2>Course Registration</h2>
-  <form id="registrationForm" action="https://registrations-e075.restdb.io/rest/registration" method="post">
+  <form id="registrationForm" action="https://registrations-e075.restdb.io/home/db/registrations-e075/cards/657414e63e03ce650000f3fe" method="post">
     <label>
       Name:
       <input type="text" name="name" required>
@@ -131,7 +131,7 @@
       event.preventDefault(); // Add this line
       var formData = new FormData(document.getElementById("registrationForm"));
 
-      fetch("https://registrations-e075.restdb.io/rest/registration", {
+      fetch("https://registrations-e075.restdb.io/home/db/registrations-e075/cards/657414e63e03ce650000f3fe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
