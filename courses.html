@@ -132,22 +132,25 @@
       var formData = new FormData(document.getElementById("registrationForm"));
 
       fetch("https://registrations-e075.restdb.io/rest/registration", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
-        },
-        body: JSON.stringify(Object.fromEntries(formData)),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Registration Successful:", data);
-          alert("Registration Successful!");
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Registration failed. Please try again.");
-        });
+  method: "POST",
+  mode: "cors",
+  credentials: "include",
+  headers: {
+    "Content-Type": "application/json",
+    "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
+  },
+  body: JSON.stringify(Object.fromEntries(formData)),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Registration Successful:", data);
+    alert("Registration Successful!");
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+    alert("Registration failed. Please try again.");
+  });
+
     }
 
     // Assign the function to the button click event
