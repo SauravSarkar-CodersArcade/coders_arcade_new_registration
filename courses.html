@@ -121,33 +121,39 @@
       <input type="checkbox" name="courses" value="web-development"> Web Development (HTML/CSS/JavaScript)
     </label>
 
-    <button type="submit" onclick="submitForm()">Submit</button>
+    <button type="button" onclick="submitForm()">Submit</button>
   </form>
 </div>
 
 <script>
-  function submitForm(event) {
-    event.preventDefault(); // Add this line
-    var formData = new FormData(document.getElementById("registrationForm"));
+  document.addEventListener("DOMContentLoaded", function() {
+    function submitForm() {
+      event.preventDefault(); // Add this line
+      var formData = new FormData(document.getElementById("registrationForm"));
 
-    fetch("https://registrations-e075.restdb.io/rest/registration", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
-      },
-      body: JSON.stringify(Object.fromEntries(formData)),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Registration Successful:", data);
-        alert("Registration Successful!");
+      fetch("https://registrations-e075.restdb.io/rest/registration", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-apikey": "78182a4f207f4682443f822a3e56a54679f3a",
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
       })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("Registration failed. Please try again.");
-      });
-  }
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Registration Successful:", data);
+          alert("Registration Successful!");
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Registration failed. Please try again.");
+        });
+    }
+
+    // Assign the function to the button click event
+    var submitButton = document.querySelector("button");
+    submitButton.addEventListener("click", submitForm);
+  });
 </script>
 
 </body>
